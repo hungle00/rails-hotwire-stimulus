@@ -1,0 +1,42 @@
+<%= render "partials/navbar" %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table class="divide-y divide-cool-gray-200">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class="bg-white divide-y divide-cool-gray-200">
+    <% @posts.each do |post| %>
+      <tr>
+        <td class="px-6 py-4 whitespace-nowrap text-sm leading-5 text-cool-gray-900">
+          <%= link_to post.title, post %>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm leading-5 text-cool-gray-500">
+          <%= post.body %>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm leading-5 text-cool-gray-500">
+          <%= post.user.name %>
+        </td>
+        
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= button_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
+
+
+
