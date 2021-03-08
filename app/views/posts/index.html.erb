@@ -53,7 +53,7 @@
           <%= link_to post.title, post %>
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm leading-5 text-cool-gray-500">
-          <%= post.body %>
+          <p><%= post.body[0..50] %>...</p>
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm leading-5 text-cool-gray-500">
           <%= post.user.name %>

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.includes(:user)
+    @posts = Post.includes(:user).order(:created_at).limit(10)
     @post = Post.new
     @user_options = User.all.map{ |u| [ u.name, u.id ] }
   end
