@@ -1,5 +1,6 @@
+<%= turbo_frame_tag comment do %>
   <div class="d-flex justify-content-between">
-    <div><%= comment.body %></div>
-    <div class="d-flex">
-    </div>
+    <%= comment.body %>
+    <%= button_to 'Delete', post_comment_path(comment.post, comment) , method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </div>
+<% end %>

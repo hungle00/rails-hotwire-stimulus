@@ -1,1 +1,18 @@
 <%= render "partials/navbar" %>
+
+<div class="container">
+  <div class="card">
+    <h1>Wall Posts</h1>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <p><%= post.user.name %> posted at: <em><%= post.created_at.strftime("%l:%M %P") %></em></p>
+        <div class="inline-block"
+          data-controller="hovercard"
+          data-hovercard-url-value="<%= hovercard_post_path(post) %>"
+          data-action="mouseenter->hovercard#show mouseleave->hovercard#hide">
+          <h3><%= link_to post.title, post, class: "branded-link" %></h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

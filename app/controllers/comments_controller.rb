@@ -8,13 +8,13 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         comment = Comment.new
-        #format.turbo_stream {
-        #  render turbo_stream: turbo_stream.replace(dom_id_for_records(@commentable, comment), partial: "comments/form", locals: { comment: comment, commentable: @commentable })
-        #}
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.replace(dom_id(@post, comment), partial: "comments/form", locals: { comment: comment, post: @post })
+        }
         format.html { redirect_to @post }
       else
         format.turbo_stream {
-          render turbo_stream: turbo_stream.replace( dom_id(@post, @comment), partial: "comments/form", locals: { comment: @comment, post: @post })
+          render turbo_stream: turbo_stream.replace(dom_id(@post, @comment), partial: "comments/form", locals: { comment: @comment, post: @post })
         }
         format.html { redirect_to @post }
         #format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -22,10 +22,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@comment) }
+      #format.turbo_stream {}
+      format.html { redirect_to @comment.post }
+    end
+  end
+
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :post_id)
+    params.require(:comment).permit(:body)
   end
 
   def set_post
