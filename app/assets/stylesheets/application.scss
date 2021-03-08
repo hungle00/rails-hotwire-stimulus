@@ -46,3 +46,11 @@
       border: 3px solid #5c5858;
     }
   }
+
+  .modal {
+    transition: opacity 0.25s ease;
+  }
+  body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+  }

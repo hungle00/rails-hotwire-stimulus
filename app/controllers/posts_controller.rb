@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.includes(:user)
+    @post = Post.new
+    @user_options = User.all.map{ |u| [ u.name, u.id ] }
   end
 
   def hovercard
