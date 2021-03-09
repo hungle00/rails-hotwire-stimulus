@@ -1,12 +1,11 @@
-<%= render "partials/navbar" %>
-
-<div class="search-container" data-controller="search">
+<div class="bg-white flex flex-col max-w-md mx-auto" data-controller="search">
   <div class="search-form" >
-    <h1>Search</h1>
-    <form action="results" method="get">
-      <label for="sys-search">Search the  System</label>
-      <input name="search-term" type="text" minlength=2
-            placeholder="Stimulus ..." aria-label="Search through site content" autofocus
+    <span class="w-auto flex justify-end items-center text-gray-500 p-2">
+      <i class="material-icons text-3xl">Search</i>
+    </span>
+    <form action="results" method="get" class="mb-3 flex-auto">
+      <input name="search-term" type="text" minlength=2 autofocus
+            placeholder="Search by title ..." class="w-full rounded p-2"
             data-search-target="searchItem"
             data-action="input->search#requestSearch"
       >

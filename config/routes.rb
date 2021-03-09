@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :todos
   resources :posts do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
     member do
       get :hovercard
     end

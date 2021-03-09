@@ -1,5 +1,5 @@
     <% @posts.each do |post| %>
-      <div class="post">
+      <div class="border-solid border-2 border-blue-400 rounded-sm py-3">
         <p><%= post.user.name %> posted at: <em><%= post.created_at.strftime("%l:%M %P") %></em></p>
         <div class="inline-block"
             data-controller="hovercard"
