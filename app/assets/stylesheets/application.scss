@@ -12,18 +12,7 @@
  *
  *= require_tree .
  *= require_self
- */
-  .container {
-    margin-left: 5%;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: auto auto auto;
-    .card {
-      grid-column: 1 / 3;
-    }
-  }
-  
-  
+ */  
   [data-tooltip-arrow]::after {
     content: " ";
     position: absolute;
@@ -39,4 +28,8 @@
   body.modal-active {
     overflow-x: hidden;
     overflow-y: visible !important;
+  }
+
+  .not-found {
+    display: none;
   }

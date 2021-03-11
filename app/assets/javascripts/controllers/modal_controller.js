@@ -4,10 +4,10 @@ export default class extends Controller {
 
   static targets = ["modal"]
 
-  initialize() {
+  /*initialize() {
     console.log(this.modalTarget);
     console.log(this.element);
-  }
+  }*/
 
   open() {
     this.toogleModal();

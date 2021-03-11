@@ -1,30 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Todos</h1>
 
-<table class="divide-y divide-cool-gray-200">
-  <thead>
-    <tr>
-      <th>Todos</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody class="bg-white divide-y divide-cool-gray-200">
+<div data-controller="filter" class="container mx-auto px-4">
+  <input data-target="filter.source" data-action="input->filter#filter"
+        type="text" class="rounded p-2 mt-4" placeholder="Filter Todos" />
+  <table class="divide-y divide-cool-gray-200">
     <% @todos.each do |todo| %>
-      <tr data-controller="todo" data-todo-update-url="<%= todo_path(todo) %>">
-        <td class="px-6 py-3">
+      <tr data-controller="todo" data-todo-update-url="<%= todo_path(todo) %>"
+          data-target="filter.filterable"
+          data-filter-key='<%= "#{todo.completed ? 'done' : 'todo' } #{todo.title}".downcase %>'>
+        <td class="px-3 py-1">
           <input type="checkbox" 
                 data-action="todo#toogle"
                 data-target="todo.completed"
                 <% if todo.completed %> checked <% end %>>
           <%= todo.title %>
         </td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+  </table>
+</div>
 
 <br>
 

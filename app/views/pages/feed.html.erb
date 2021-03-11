@@ -1,8 +1,7 @@
-<div class="container">
-  <h1>Wall Posts</h1>
-  <br />
+<div class="grid grid-cols-6">
+  <h1 class="ml-12 my-4 text-xl font-medium">Feed</h1>
 
-  <div class="card" data-controller="infinite-scroll">
+  <div class="ml-12 col-start-1 col-span-4" data-controller="infinite-scroll">
     <div data-target="infinite-scroll.entries">
       <%= render "posts" %>
     </div>

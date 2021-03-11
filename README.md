@@ -1,24 +1,12 @@
-# README
+# Rails-Stimulus-Hotwire
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Fun with some new [Rails related](https://hotwire.dev/) techs: tailwindcss-rails, hotwire-rails, stimulus-rails
 
-Things you may want to cover:
+Project is just for fun, don't pay attention for bussiness logic. Some notes:
 
-* Ruby version
+* Create/delete comment in realtime with Hotwire
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* With Stimulus
+*Hovercard, infinite scroll with Stimulus*
+*Type-ahead search*
+*Update todos from checkbox, filter todo*

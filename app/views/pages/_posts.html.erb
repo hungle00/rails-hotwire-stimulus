@@ -1,11 +1,11 @@
-    <% @posts.each do |post| %>
-      <div class="border-solid border-2 border-blue-400 rounded-sm py-3">
-        <p><%= post.user.name %> posted at: <em><%= post.created_at.strftime("%l:%M %P") %></em></p>
-        <div class="inline-block"
-            data-controller="hovercard"
-            data-hovercard-url-value="<%= hovercard_post_path(post) %>"
-            data-action="mouseenter->hovercard#show mouseleave->hovercard#hide">
-          <h2><%= link_to post.title, post, class: "branded-link" %></h2>
-        </div>
-      </div>
-    <% end %>
+<% @posts.each do |post| %>
+  <div class="border-solid border-2 border-blue-400 rounded-sm py-3">
+    <p><%= post.user.name %> posted at: <em><%= post.created_at.strftime("%l:%M %P") %></em></p>
+    <div class="inline-block"
+        data-controller="hovercard"
+        data-hovercard-url-value="<%= hovercard_post_path(post) %>"
+        data-action="mouseenter->hovercard#show mouseleave->hovercard#hide">
+      <h2><%= link_to post.title, post, class: "branded-link" %></h2>
+    </div>
+  </div>
+<% end %>
